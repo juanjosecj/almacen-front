@@ -1,8 +1,9 @@
 // app/page.jsx
 import React from "react";
 import ProductCard from "@/components/ProductoCard";
-import { ActiveLink } from "@/components/Activelinks/ActiveLink";
+import { ActiveLink } from "@/components/activelinks/ActiveLink";
 import Navbar from "@/components/Navbar/Navbar";
+
 
 // Define el tipo del producto
 export interface Producto {
@@ -29,9 +30,10 @@ async function getProductos(): Promise<Producto[]> {
 
 const navItems = [
   { path: "/", text:"Home"},
-  { path: "/registro", text:"Registro"},
-  { path: "/pricing", text:"Pricing"},
-  { path: "/contact", text:"Contact"},
+  { path: "/general/registro", text:"Registro"},
+  { path: "/general/login", text:"Perfil"},
+
+
 ];
 
 
@@ -43,11 +45,12 @@ export default async function Home() {
     <>
     
     <main className="min-h-screen p-6 bg-gray-100">
-      <Navbar>
-        {navItems.map((navItem) => (
-          <ActiveLink key={navItem.path} {...navItem} />
-        ))}
-      </Navbar>
+
+    <Navbar>
+      {navItems.map((navItem) => (
+        <ActiveLink key={navItem.path} {...navItem} />
+      ))}
+    </Navbar>
 
 
       <h1 className="text-3xl font-bold text-center mb-6">Productos en stock</h1>
@@ -56,6 +59,7 @@ export default async function Home() {
           <ProductCard key={producto._id} producto={producto} />
         ))}
       </div>
+      
     </main>
 
     </>
