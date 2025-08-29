@@ -36,13 +36,13 @@ export default function PerfilPage() {
         );
 
         if (!clienteEncontrado) {
-          router.push("/login");
+          router.push("");
         } else {
           setCliente(clienteEncontrado);
         }
       } catch (error) {
         console.error(error);
-        router.push("/login");
+        router.push("");
       } finally {
         setLoading(false);
       }
